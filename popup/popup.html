@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Tweet Translator</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Tweet Translator</h1>
+      <span class="version">1.1.0</span>
+    </div>
+
+    <div class="toggle-row">
+      <div class="row-label">Переводить твиты</div>
+      <label class="switch">
+        <input type="checkbox" id="toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="section-title">Сервисы</div>
+
+    <div class="toggle-row">
+      <div class="row-label">X / Twitter</div>
+      <label class="switch">
+        <input type="checkbox" id="site-x">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="toggle-row">
+      <div class="row-label">Axiom</div>
+      <label class="switch">
+        <input type="checkbox" id="site-axiom">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="toggle-row">
+      <div class="row-label">Padre</div>
+      <label class="switch">
+        <input type="checkbox" id="site-padre">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="toggle-row">
+      <div class="row-label">GMGN</div>
+      <label class="switch">
+        <input type="checkbox" id="site-gmgn">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <button id="clear" class="clear-btn">Очистить кэш</button>
+    <div id="stats" class="stats"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

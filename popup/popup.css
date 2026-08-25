@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 260px;
+  font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+  background: #0f0f14;
+  color: #e4e4e7;
+  font-size: 13px;
+}
+
+.container {
+  padding: 16px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #1e1e2a;
+}
+
+h1 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #a78bfa;
+  margin: 0;
+}
+
+.version {
+  font-size: 10px;
+  color: #52525b;
+  background: #1e1e2a;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 0;
+}
+
+.row-label {
+  flex: 1;
+  padding-right: 10px;
+  user-select: none;
+}
+
+.section-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #52525b;
+  margin: 6px 0 2px;
+  padding-top: 8px;
+  border-top: 1px solid #1e1e2a;
+}
+
+.clear-btn {
+  margin-top: 12px;
+  width: 100%;
+  padding: 8px;
+  border: 0;
+  border-radius: 6px;
+  background: #1e1e2a;
+  color: #e4e4e7;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.clear-btn:hover {
+  background: #27272a;
+}
+
+.clear-btn:active {
+  background: #18181d;
+}
+
+.stats {
+  margin-top: 10px;
+  font-size: 11px;
+  color: #71717a;
+  text-align: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #27272a;
+  border-radius: 22px;
+  transition: background 0.25s ease;
+}
+
+.slider::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 3px;
+  bottom: 3px;
+  background: #71717a;
+  border-radius: 50%;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+input:checked + .slider {
+  background: #7c3aed;
+}
+
+input:checked + .slider::before {
+  transform: translateX(18px);
+  background: #ffffff;
+}
+
+.hint {
+  text-align: center;
+  font-size: 10px;
+  color: #52525b;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #1e1e2a;
+}
+
+.author {
+  text-align: center;
+  font-size: 11px;
+  color: #52525b;
+  margin-top: 10px;
+}
+
+.author a {
+  color: #a78bfa;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.author a:hover {
+  color: #c4b5fd;
+  text-decoration: underline;
+}

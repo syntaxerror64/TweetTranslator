@@ -1,0 +1,121 @@
+{
+  "manifest_version": 3,
+  "name": "Tweet Translator",
+  "version": "1.1.0",
+  "description": "Мгновенный перевод твитов на русский — x.com, axiom.trade, trade.padre.gg, gmgn.ai",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://x.com/*",
+    "https://twitter.com/*",
+    "https://axiom.trade/*",
+    "https://trade.padre.gg/*",
+    "https://gmgn.ai/*",
+    "https://translate.googleapis.com/*",
+    "https://api.mymemory.translated.net/*",
+    "https://api.fxtwitter.com/*",
+    "https://cdn.syndication.twimg.com/*",
+    "https://mozhi.pussthecat.org/*",
+    "https://mozhi.r4fo.com/*",
+    "https://mzh.dc09.xyz/*",
+    "https://mozhi.adminforge.de/*",
+    "https://mozhi.bloat.cat/*",
+    "https://mozhi.ducks.party/*",
+    "https://simplytranslate.org/*",
+    "https://translate.plausibility.cloud/*"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://trade.padre.gg/*"],
+      "js": ["padre/api-interceptor.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://axiom.trade/*"],
+      "js": [
+        "core/config.js",
+        "core/debug.js",
+        "core/utils.js",
+        "axiom/constants.js",
+        "core/cache.js",
+        "core/diagnostics.js",
+        "core/translator.js",
+        "core/ui.js",
+        "axiom/observer.js",
+        "axiom/content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    },
+    {
+      "matches": ["https://trade.padre.gg/*"],
+      "js": [
+        "core/config.js",
+        "core/debug.js",
+        "core/utils.js",
+        "padre/constants.js",
+        "core/cache.js",
+        "core/diagnostics.js",
+        "core/translator.js",
+        "core/ui.js",
+        "padre/padre-observer.js",
+        "padre/content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    },
+    {
+      "matches": ["https://gmgn.ai/*"],
+      "js": [
+        "core/config.js",
+        "core/debug.js",
+        "core/utils.js",
+        "gmgn/constants.js",
+        "core/cache.js",
+        "core/diagnostics.js",
+        "core/translator.js",
+        "core/ui.js",
+        "gmgn/observer.js",
+        "gmgn/content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    },
+    {
+      "matches": ["https://x.com/*", "https://twitter.com/*"],
+      "js": [
+        "core/config.js",
+        "core/debug.js",
+        "core/utils.js",
+        "twitter/constants.js",
+        "core/cache.js",
+        "core/diagnostics.js",
+        "core/translator.js",
+        "core/ui.js",
+        "twitter/observer.js",
+        "twitter/content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
