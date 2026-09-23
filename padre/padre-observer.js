@@ -1493,7 +1493,18 @@ class TweetObserver {
           hr.style.background = 'transparent';
           element.appendChild(hr);
           const link = document.createElement('a');
-          link.href = url.startsWith('http') ? url : 'https://' + url;
+          const candidate = url.trim();
+          const candidateWithScheme = /^[a-zA-Z][a-zA-Z\d+\-.]*:/.test(candidate) ? candidate : 'https://' + candidate;
+          let parsedUrl;
+          try {
+            parsedUrl = new URL(candidateWithScheme);
+          } catch (_) {
+            continue;
+          }
+          if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') {
+            continue;
+          }
+          link.href = parsedUrl.href;
           link.textContent = url;
           link.target = '_blank';
           link.rel = 'noopener noreferrer';
